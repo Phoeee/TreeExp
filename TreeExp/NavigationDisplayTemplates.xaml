@@ -1,0 +1,59 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                    xmlns:local="clr-namespace:TreeExp">
+
+    <local:NavigationItemTemplateSelector x:Key="NavigationItemTemplateSelector"/>
+
+    <HierarchicalDataTemplate x:Key="NavFolderItemTemplate" ItemsSource="{Binding SubDirectory}"
+            ItemTemplateSelector="{StaticResource NavigationItemTemplateSelector}">
+        <Border BorderBrush="White" BorderThickness="0.5">
+            <DockPanel Height="25" MinWidth="100" Background="White">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonUp">
+                        <i:InvokeCommandAction
+                                    Command="{Binding DataContext.GoToCommand,
+                                    ElementName=NavigationDisplayTreeView}"
+                                    CommandParameter="{Binding}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Image Source="Icons/folder.ico" Height="20" Width="20"/>
+                <TextBlock Foreground="Black" Text="{Binding Name}" TextAlignment="Left" VerticalAlignment="Center" Padding="5,0,0,0"/>
+            </DockPanel>
+        </Border>
+    </HierarchicalDataTemplate>
+
+    <DataTemplate x:Key="NavFileItemTemplate">
+        <DockPanel Height="25" Background="White">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseLeftButtonUp">
+                    <i:InvokeCommandAction
+                                Command="{Binding DataContext.GoToCommand,
+                                ElementName=NavigationDisplayTreeView}"
+                                CommandParameter="{Binding}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <Image Source="Icons/cd_drive.ico" Height="20" Width="20"/>
+            <TextBlock Text="{Binding Name}" TextAlignment="Left" VerticalAlignment="Center" Padding="5,0,0,0"/>
+        </DockPanel>
+    </DataTemplate>
+
+    <HierarchicalDataTemplate x:Key="NavDriveItemTemplate" ItemsSource="{Binding SubDirectory}"
+            ItemTemplateSelector="{StaticResource NavigationItemTemplateSelector}">
+        <Border BorderBrush="White" BorderThickness="0.5">
+            <DockPanel Height="25" MinWidth="100" Background="White">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonUp">
+                        <i:InvokeCommandAction
+                                Command="{Binding DataContext.GoToCommand,
+                                ElementName=NavigationDisplayTreeView}"
+                                CommandParameter="{Binding}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Image Source="Icons/cd_drive.ico" Height="20" Width="20"/>
+                <TextBlock Foreground="Black" Text="{Binding FullName}" TextAlignment="Left" VerticalAlignment="Center" Padding="5,0,0,0"/>
+            </DockPanel>
+        </Border>
+    </HierarchicalDataTemplate>
+
+</ResourceDictionary>
