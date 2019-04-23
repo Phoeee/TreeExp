@@ -39,7 +39,8 @@
                                 CommandParameter="{Binding}"/>
             </DockPanel.InputBindings>
             <Image Source="Icons/cd_drive.ico" Height="20" Width="20"/>
-            <TextBlock Text="{Binding FullName}" TextAlignment="Left" VerticalAlignment="Center" Padding="5,0,0,0"/>
+            <TextBlock Text="{Binding FullName}" TextAlignment="Left" 
+                       VerticalAlignment="Center" Padding="5,0,0,0"/>
         </DockPanel>
     </DataTemplate>
 

@@ -9,6 +9,7 @@
     <Window.DataContext>
         <local:FileExplorerViewModel/>
     </Window.DataContext>
+    
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -25,19 +26,18 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="6*" />
-            <RowDefinition Height="10*" />
             <RowDefinition Height="90*" />
         </Grid.RowDefinitions>
 
-        <TreeView Name="NavigationDisplayTreeView" Grid.Row="2" Grid.Column="0" DataContext="{Binding Path=NavigationDisplayViewModel}"
+        <TreeView Name="NavigationDisplayTreeView" Grid.Row="1" Grid.Column="0" DataContext="{Binding Path=NavigationDisplayViewModel}"
                   ItemTemplateSelector="{StaticResource NavigationItemTemplateSelector}" HorizontalContentAlignment="Stretch"
                   Margin="5,0,0,5"  ItemsSource="{Binding NavigationBarDirectory}" >
         </TreeView>
 
-        <GridSplitter Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch"
+        <GridSplitter Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch"
                 Width="5" Background="White"/>
 
-        <ListBox Grid.Row="2" Grid.Column="2" ItemsSource="{Binding ActiveDirectoryCollection}"
+        <ListBox Grid.Row="1" Grid.Column="2" ItemsSource="{Binding ActiveDirectoryCollection}"
                 Margin="0,0,5,5" ItemTemplateSelector="{StaticResource DirectoryItemTemplateSelector}"
                 Name="DirectoryDisplayListBox" DataContext="{Binding Path=DirectoryDisplayViewModel}" >
             <ListBox.ItemContainerStyle>

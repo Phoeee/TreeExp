@@ -53,14 +53,17 @@ namespace TreeExp
                     FileAttributes attributes = File.GetAttributes(folderName);
                     if ((attributes & FileAttributes.Hidden) == FileAttributes.Hidden &&
                         (attributes & FileAttributes.System) == FileAttributes.System)
+                    {
                         continue;
-
+                    }
                     subDirectory.Add(new FolderItem(fileInfo));
                 }
                 if (getFiles)
                 {
                     foreach (var fileName in directoryFileEntries)
+                    {
                         subDirectory.Add(new FileItem(new FileInfo(fileName)));
+                    }
                 }
 
                 return new ObservableCollection<DirectoryItem>(

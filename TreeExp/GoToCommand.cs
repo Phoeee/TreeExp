@@ -10,14 +10,12 @@ namespace TreeExp
     public class GoToCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
-
         private Action<object> GoAction;
 
         public GoToCommand(Action<object> GoAction)
         {
             this.GoAction = GoAction;
         }
-
         public bool CanExecute(object parameter)
         {
             return true;

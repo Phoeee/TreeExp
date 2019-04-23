@@ -22,20 +22,26 @@ namespace TreeExp
             // Populate Navigation Bar
             var drives = Directory.GetLogicalDrives();
             foreach (string drivePath in drives)
+            {
                 NavigationBarDirectory.Add(new DriveItem(new FileInfo(drivePath)));
-            NavigationBarDirectory = new ObservableCollection<DirectoryItem>(
-                    NavigationBarDirectory.OrderBy((x) => { return x.Name; }).ToList());
+            }
+                NavigationBarDirectory = new ObservableCollection<DirectoryItem>(
+                        NavigationBarDirectory.OrderBy((x) => { return x.Name; }).ToList());
+            
         }
 
         private void GoTo(object parameter)
         {
             var folderItem = parameter as FolderItem;
             var driveItem = parameter as DriveItem;
-
             if (folderItem != null)
+            {
                 directoryDisplayViewModel.SetDirectory(folderItem.FullName);
+            }
             else if (driveItem != null)
+            {
                 directoryDisplayViewModel.SetDirectory(driveItem.FullName);
+            }
         }
 
         public ObservableCollection<DirectoryItem> NavigationBarDirectory { get; set; }

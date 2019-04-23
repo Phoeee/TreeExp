@@ -15,7 +15,15 @@ namespace TreeExp
             NavigationDisplayViewModel = new NavigationDisplayViewModel(DirectoryDisplayViewModel);
         }
 
-        public DirectoryDisplayViewModel DirectoryDisplayViewModel { get; private set; }
-        public NavigationDisplayViewModel NavigationDisplayViewModel { get; private set; }
+        public DirectoryDisplayViewModel DirectoryDisplayViewModel
+        {
+            get;
+            private set;
+        }
+        public NavigationDisplayViewModel NavigationDisplayViewModel
+        {
+            get;
+            private set;
+        }
     }
 }

@@ -31,11 +31,17 @@ namespace TreeExp
             var driveItem = parameter as DriveItem;
 
             if (fileItem != null)
+            {
                 Process.Start((parameter as FileItem).FullName);
+            }
             else if (folderItem != null)
+            {
                 executeAction.Invoke(folderItem.FullName);
+            }
             else if (driveItem != null)
+            {
                 executeAction.Invoke(driveItem.FullName);
+            }
         }
     }
 }

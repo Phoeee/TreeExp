@@ -21,7 +21,9 @@ namespace TreeExp
             get
             {
                 if (subDirectory == null)
+                {
                     subDirectory = GetSubDirectory(FullName, false);
+                }
                 return subDirectory;
             }
         }

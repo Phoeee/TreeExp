@@ -15,7 +15,11 @@ namespace TreeExp
         private static readonly string WindowsDrive = Path.GetPathRoot(Environment.SystemDirectory);
         private ObservableCollection<DirectoryItem> subDirectory;
 
-        public ImageSource ImageSource { get; private set; }
+        public ImageSource ImageSource
+        {
+            get;
+            private set;
+        }
 
         public DriveItem(FileInfo fileInfo) : base(fileInfo)
         {
@@ -31,8 +35,6 @@ namespace TreeExp
                 string path = $"Assets\\Drives\\{driveLetter}.ico";
                 ImageSource = new BitmapImage(new Uri(path, UriKind.Relative));
             }
-
-            // Set sub directory
         }
 
         public ObservableCollection<DirectoryItem> SubDirectory
@@ -40,8 +42,10 @@ namespace TreeExp
             get
             {
                 if (subDirectory == null)
+                {
                     subDirectory = GetSubDirectory(FullName, false);
-                return subDirectory;
+                }
+                    return subDirectory;
             }
         }
     }

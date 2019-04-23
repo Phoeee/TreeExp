@@ -18,7 +18,8 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
                 <Image Source="Icons/folder.ico" Height="20" Width="20"/>
-                <TextBlock Foreground="Black" Text="{Binding Name}" TextAlignment="Left" VerticalAlignment="Center" Padding="5,0,0,0"/>
+                <TextBlock Foreground="Black" Text="{Binding Name}" TextAlignment="Left" 
+                           VerticalAlignment="Center" Padding="5,0,0,0"/>
             </DockPanel>
         </Border>
     </HierarchicalDataTemplate>
